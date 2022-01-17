@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form todo</title>
+</head>
+<style>
+    .divBox {
+        display: flex;
+        align-items: baseline;
+    }
+</style>
+
+<body>
+    <form>
+        <input type="text">
+        <input type="submit">
+    </form>
+    <div id="main"></div>
+</body>
+
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit", todoFunc)
+    function todoFunc(e) {
+        e.preventDefault()
+        var input = event.target.childNodes[1].value
+        // console.log(input)
+        var div1 = document.createElement("div");
+        div1.setAttribute("class", "divBox")
+        // console.log(div1)
+        var showInput = document.createElement("h1");
+        showInput.innerHTML = input
+        // console.log(showInput)
+        var checkbox = document.createElement("input")
+        checkbox.setAttribute("type", "checkbox")
+        checkbox.setAttribute("class", "checkboxClass");
+        div1.append(checkbox, showInput);
+       var mainDiv= document.querySelector("#main");
+       
+        mainDiv.append(div1);
+        checkbox.addEventListener("click", ticked);
+    }
+    function ticked(el) {
+        var res = el.target.nextElementSibling
+        // var res = el.target.tagName;
+        if (this.checked) {
+            res.style.color = "red";
+            res.style.textDecoration = "line-through";
+        }
+        else {
+            res.style.color = "black";
+            res.style.textDecoration = "none";
+        }
+    } 
+</script>

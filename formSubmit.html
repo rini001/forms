@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submit</title>
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="Enter Name">
+        <input type="submit">
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit",submitFunction);
+    function submitFunction(e){
+        e.preventDefault()
+        var name=event.target.childNodes[1].value
+        alert(name)
+    }
+</script>
